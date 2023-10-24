@@ -1,0 +1,16 @@
+.crea-office-container {
+    width: 100%;
+}
+
+.crea-office-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.crea-office-card h3 {
+    margin-top: 0;
+}
+
