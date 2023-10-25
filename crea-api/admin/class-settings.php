@@ -30,7 +30,7 @@ class CREA_Settings_Page {
                     </tr>
                     <tr valign="top">
                         <th scope="row">Refresh Interval (seconds)</th>
-                        <td><input type="number" name="crea_refresh_interval" value="<?php echo esc_attr(get_option('crea_refresh_interval', 3600)); ?>" min="300" /></td>
+                        <td><input type="number" name="crea_refresh_interval" value="<?php echo esc_attr(get_option('crea_refresh_interval', 86400)); ?>" min="300" /></td>
                     </tr>
                 </table>
                 <?php submit_button(); ?>
