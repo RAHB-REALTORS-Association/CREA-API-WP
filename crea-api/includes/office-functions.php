@@ -6,8 +6,13 @@
 add_shortcode('crea_office_roster', 'render_crea_office_roster');
 
 function render_crea_office_roster() {
-    // Fetch the office data
-    $offices = fetch_office_data();
+    // Fetch the office data from the cache or API
+    $offices = get_transient('crea_office_data');
+    if (!$offices) {
+        $offices = fetch_office_data();
+        $refresh_interval = get_option('crea_refresh_interval', 86400); // Default to 86400 seconds (1 day) if not set
+        set_transient('crea_office_data', $offices, $refresh_interval);
+    }
 
     ob_start(); // Start output buffering
     ?>
