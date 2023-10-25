@@ -1,6 +1,6 @@
 # CREA Board Data API for WordPress
 
-This plugin allows you to fetch and display member and office data from the CREA Board Data API on your WordPress website.
+This plugin allows you to fetch and display member and office data from the [CREA](https://www.crea.ca) [Board Data API](https://boardapi-docs.realtor.ca/) on your WordPress website.
 
 ## Installation
 
