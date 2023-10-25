@@ -15,14 +15,18 @@ This plugin allows you to fetch and display member and office data from the CREA
 
 == Installation ==
 
-1. Upload `crea-api` to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to 'Settings' and configure your CREA API credentials.
+1. Download the plugin's ZIP file and extract it to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the 'Plugins' screen in WordPress.
+3. Navigate to the 'Settings' > 'CREA API' screen and configure your  credentials.
 
 == Frequently Asked Questions ==
 
 = What is the CREA API? =
 The CREA Board Data API is an API provided by the Canadian Real Estate Association for accessing real estate agent and office data.
+
+== License ==
+
+This plugin is released under the GPLv2 license. For more information, please see `LICENSE`.
 
 == Changelog ==
 
