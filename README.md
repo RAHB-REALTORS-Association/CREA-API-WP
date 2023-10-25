@@ -1,6 +1,7 @@
 # CREA Board Data API for WordPress
 
-> [!IMPORTANT] This project is not affiliated with or supported by CREA. Please do not contact CREA for support.
+> [!IMPORTANT]
+> This project is not affiliated with or supported by CREA. Please do not contact CREA for support.
 
 This plugin allows you to fetch and display member and office data from the [CREA](https://www.crea.ca) [Board Data API](https://boardapi-docs.realtor.ca/) on your WordPress website.
 
