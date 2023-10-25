@@ -15,7 +15,7 @@ This plugin allows you to fetch and display member and office data from the CREA
 
 == Installation ==
 
-1. Download the plugin's ZIP file and extract it to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
+1. Download the plugin's ZIP file and extract the `crea-api` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Navigate to the 'Settings' > 'CREA API' screen and configure your  credentials.
 
