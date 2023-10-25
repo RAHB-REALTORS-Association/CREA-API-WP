@@ -5,6 +5,11 @@
 
 This plugin allows you to fetch and display member and office data from the [CREA](https://www.crea.ca) [Board Data API](https://boardapi-docs.realtor.ca/) on your WordPress website.
 
+## Development
+
+> [!WARNING]
+> This plugin is still in early stages of development and is not yet ready for production use. Use only on development or staging sites, preferably if you're willing to contribute to the development of this plugin. Issue reports and pull requests are welcome.
+
 ## Installation
 
 1. Download the plugin's ZIP file and extract it to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
