@@ -42,7 +42,9 @@ class CREA_Settings_Page {
     public function register_settings() {
         register_setting('crea-settings-group', 'crea_client_id');
         register_setting('crea-settings-group', 'crea_client_secret');
-        register_setting('crea-settings-group', 'crea_refresh_interval', 'validate_refresh_interval');
+        register_setting('crea-settings-group', 'crea_refresh_interval', array(
+            'sanitize_callback' => 'validate_refresh_interval'
+        ));
     }
 }
 
