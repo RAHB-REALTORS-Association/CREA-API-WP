@@ -1,3 +1,5 @@
+<?php
+
 // office-functions.php
 
 // Register the shortcode
@@ -79,7 +81,7 @@ function fetch_office_data() {
             case 401:
                 // Handle unauthorized access
                 // Attempt to refresh the access token and retry
-                $access_token = $tokenManager->forceRefreshToken();
+                $access_token = $tokenManager->fetchAccessToken();
                 $args['headers']['Authorization'] = 'Bearer ' . $access_token;
                 $response = wp_remote_get($api_endpoint, $args);
                 

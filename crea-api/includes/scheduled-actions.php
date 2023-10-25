@@ -1,4 +1,8 @@
+<?php
+
 // scheduled-actions.php
+
+add_action('crea_refresh_token', 'refresh_crea_token');
 
 function refresh_crea_token() {
     // Retrieve credentials from WordPress options

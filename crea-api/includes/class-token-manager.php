@@ -1,3 +1,5 @@
+<?php
+
 // class-token-manager.php
 
 class TokenManager {
@@ -19,10 +21,10 @@ class TokenManager {
         }
 
         // Otherwise, refresh the token
-        return $this->forceRefreshToken();
+        return $this->fetchAccessToken();
     }
 
-    public function forceRefreshToken() {
+    public function fetchAccessToken() {
         $api_endpoint = "https://identity.crea.ca/connect/token";
         $args = array(
             'body' => array(

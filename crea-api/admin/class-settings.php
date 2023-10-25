@@ -1,3 +1,5 @@
+<?php
+
 // class-settings.php
 
 class CREA_Settings_Page {
