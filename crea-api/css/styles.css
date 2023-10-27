@@ -1,16 +1,56 @@
 .crea-office-container {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .crea-office-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    flex: 0 0 calc(33.333% - 1em);  /* Three cards per row with a little space in between */
+    margin: 0.5em;
 }
 
-.crea-office-card h3 {
-    margin-top: 0;
+@media (max-width: 768px) {
+    .crea-office-card {
+        flex: 0 0 calc(50% - 1em);  /* Two cards per row on smaller screens */
+    }
 }
 
+@media (max-width: 480px) {
+    .crea-office-card {
+        flex: 0 0 calc(100% - 1em);  /* One card per row on very small screens */
+    }
+}
+
+#crea-filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#crea-filter-text {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 650px;
+}
+
+#crea-alpha-buttons  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.crea-alpha-button {
+    margin: 5px;
+}
+
+.crea-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
+}
+
+.crea-pagination button {
+    margin: 5px;
+}

@@ -16,40 +16,40 @@ function render_crea_office_roster() {
 
     ob_start(); // Start output buffering
     ?>
+    <div id="crea-filter-container">
+        <input type="text" id="crea-filter-text" placeholder="Search">
+        <div id="crea-alpha-buttons">
+            <!-- Button for entries starting with a number -->
+            <button class="crea-alpha-button" data-letter="#">#</button>
+            <!-- Buttons for entries starting with a letter -->
+            <?php foreach (range('A', 'Z') as $letter): ?>
+                <button class="crea-alpha-button" data-letter="<?php echo $letter; ?>"><?php echo $letter; ?></button>
+            <?php endforeach; ?>
+        </div>
+    </div>
     <div class="crea-office-container">
-        <table>
-            <tr>
+        <?php foreach ($offices as $office): ?>
+            <div class="crea-office-card">
+                <h4><?php echo esc_html($office['OfficeName']); ?></h4>
+                <p>Address: <?php echo esc_html($office['OfficeAddress1'] . ', ' . $office['OfficeCity'] . ', ' . $office['OfficeStateOrProvince']); ?></p>
+                <p>Phone: <?php echo esc_html($office['OfficePhone']); ?></p>
                 <?php
-                $col_count = 0;
-                foreach ($offices as $office):
-                    if ($col_count % 3 == 0 && $col_count > 0) {
-                        echo '</tr><tr>';
-                    }
-                    $col_count++;
+                if (!empty($office['OfficeFax'])) {
+                    echo '<p>Fax: ' . esc_html($office['OfficeFax']) . '</p>';
+                }
                 ?>
-                    <td>
-                        <div class="crea-office-card">
-                            <h3><?php echo esc_html($office['OfficeName']); ?></h3>
-                            <p>Type: <?php echo esc_html($office['OfficeType']); ?></p>
-                            <p>Status: <?php echo esc_html($office['OfficeStatus']); ?></p>
-                            <p>Address: <?php echo esc_html($office['OfficeAddress1'] . ', ' . $office['OfficeCity'] . ', ' . $office['OfficeStateOrProvince']); ?></p>
-                            <p>Phone: <?php echo esc_html($office['OfficePhone']); ?></p>
-                            <p>Fax: <?php echo esc_html($office['OfficeFax']); ?></p>
-                            <p>
-                                <?php
-                                if (!empty($office['OfficeSocialMedia'])) {
-                                    echo 'Social Media: ';
-                                    foreach ($office['OfficeSocialMedia'] as $socialMedia) {
-                                        echo '<a href="' . esc_url($socialMedia['SocialMediaUrlOrId']) . '">' . esc_html($socialMedia['SocialMediaType']) . '</a> ';
-                                    }
-                                }
-                                ?>
-                            </p>
-                        </div>
-                    </td>
-                <?php endforeach; ?>
-            </tr>
-        </table>
+                <p>
+                    <?php
+                    if (!empty($office['OfficeSocialMedia'])) {
+                        echo 'Social Media: ';
+                        foreach ($office['OfficeSocialMedia'] as $socialMedia) {
+                            echo '<a href="' . esc_url($socialMedia['SocialMediaUrlOrId']) . '">' . esc_html($socialMedia['SocialMediaType']) . '</a> ';
+                        }
+                    }
+                    ?>
+                </p>
+            </div>
+        <?php endforeach; ?>
     </div>
     <?php
     return ob_get_clean(); // Return the buffered output
@@ -118,8 +118,16 @@ function fetch_office_data() {
 
     // Check if the 'data' key exists in the API response
     if (isset($data['data'])) {
-        return $data['data'];
+        // Sort by OfficeName
+        usort($data['data'], function($a, $b) {
+            return strcmp($a['OfficeName'], $b['OfficeName']);
+        });
+    
+        // Filter by OfficeType "Firm"
+        $filteredData = array_filter($data['data'], function($office) {
+            return $office['OfficeType'] === "Firm";
+        });
+    
+        return array_values($filteredData);
     }
-
-    return array();
 }

@@ -3,7 +3,7 @@
  * Plugin Name: CREA Board Data API
  * Plugin URI: https://github.com/RAHB-REALTORS-Association/CREA-API-WP
  * Description: A WordPress plugin to fetch and display information from the CREA Board Data API.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Author: RAHB
  * Author URI: https://lab.rahb.ca
  * License: GPL-2.0
@@ -14,6 +14,19 @@
 require_once(plugin_dir_path(__FILE__) . 'includes/class-token-manager.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/office-functions.php');
 require_once(plugin_dir_path(__FILE__) . 'admin/class-settings.php');
+
+// Enqueue styles
+function enqueue_crea_styles() {
+    wp_enqueue_style('crea-styles', plugin_dir_url(__FILE__) . 'css/styles.css');
+}
+add_action('wp_enqueue_scripts', 'enqueue_crea_styles');
+
+// Enqueue scripts
+function enqueue_crea_scripts() {
+    wp_enqueue_script('crea-filter', plugin_dir_url(__FILE__) . 'js/filter.js', array(), '1.0.0', true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_crea_scripts');
+
 
 // Initialize settings page
 $settings_page = new CREA_Settings_Page();
