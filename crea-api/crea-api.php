@@ -3,7 +3,7 @@
  * Plugin Name: CREA Board Data API
  * Plugin URI: https://github.com/RAHB-REALTORS-Association/CREA-API-WP
  * Description: A WordPress plugin to fetch and display information from the CREA Board Data API.
- * Version: 0.1.2
+ * Version: 0.1.3
  * Author: RAHB
  * Author URI: https://lab.rahb.ca
  * License: GPL-2.0
