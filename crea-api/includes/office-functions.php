@@ -37,6 +37,9 @@ function render_crea_office_roster() {
                 if (!empty($office['OfficeFax'])) {
                     echo '<p>Fax: ' . esc_html($office['OfficeFax']) . '</p>';
                 }
+                if (!empty($office['OfficeEmail'])) {
+                    echo '<p>Email: <a href="mailto:' . esc_attr($office['OfficeEmail']) . '">' . esc_html($office['OfficeEmail']) . '</a></p>';
+                }
                 ?>
                 <p>
                     <?php
