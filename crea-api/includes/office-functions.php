@@ -68,6 +68,8 @@ function fetch_office_data() {
     $args = array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $access_token,
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
         )
     );
 
@@ -125,12 +127,12 @@ function fetch_office_data() {
         usort($data['data'], function($a, $b) {
             return strcmp($a['OfficeName'], $b['OfficeName']);
         });
-    
+
         // Filter by OfficeType "Firm"
         $filteredData = array_filter($data['data'], function($office) {
             return $office['OfficeType'] === "Firm";
         });
-    
+
         return array_values($filteredData);
     }
 }
